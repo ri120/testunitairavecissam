@@ -1,0 +1,108 @@
+body{
+    background-image: linear-gradient(to bottom,#230c4e,transparent);
+}
+.container{
+    background-image: linear-gradient(to bottom, #228c22,transparent);
+}
+
+th{
+    background-color:rgb(87, 59, 180) ;
+    border-radius: 4px;
+}
+td{
+   background-image: linear-gradient(to bottom,rgb(255, 255, 255),transparent);
+  border-radius: 20px;
+}
+.navbar-brand{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-size: 30px;
+ color:#000000;
+}
+.navbar-toggler{
+    background-color: rgba(10, 114, 174, 0.538);
+}
+#ajouter{
+    background-color: yellowgreen;
+}
+.table{
+    text-align: center;
+    width: 80%;
+    position: absolute;
+    left: 135px;
+  border-radius: 20px;
+    opacity: .7;
+    box-shadow: 5px 10px 30px 10px rgb(186, 125, 179);
+
+}
+.thead-dark{
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.info{
+    text-align: center;
+    font-size: 60px;
+    font-style: italic;
+    font-family: serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(98, 90, 181);
+    animation-name: info;
+    animation-duration: 5s;
+animation-delay: 2s;
+animation-iteration-count: infinite;
+}
+@keyframes info{
+    0%{
+        translate:0 0 ;
+    }
+    25%{ 
+        translate: 100px 0;
+    }
+50%{
+        translate: 0 0;
+    }
+75%{
+    translate:-100px 0;
+}
+100%{
+    translate: 0 0;
+}
+
+}
+
+#icon1{
+    width: 50px;
+    height: 50px;
+    color: green;
+    cursor: pointer;
+    position: relative;
+    right: 210px;
+}
+
+#del{
+    width: 20px;
+    height: 20px;
+    color: red;
+    margin:20px;
+    cursor: pointer;
+
+}
+#edi{
+    width: 20px;
+    height: 20px;
+    color: green;
+    cursor: pointer;
+}
+#co{
+    position: relative;
+    left: 250px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+#dp{
+    position: relative;
+    left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    
+}

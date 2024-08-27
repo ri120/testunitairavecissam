@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div class="main-content app-content">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="films"><b><i class="si si-layers"></i> Liste des Competences</b></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+
+
+                
+                <a id="co" class="nav-item nav-link active"routerLink="compp">Competences<span class="sr-only"></span></a>
+
+                <a id="dp" class="nav-item nav-link active"routerLink="">Departements<span class="sr-only"></span></a>
+                
+          
+        
+
+            <div >
+                <label for="search">Search</label>
+                <input required="" pattern=".*\S.*" type="search" class="input" id="search"  [(ngModel)]="keyvalue" name="keyvalue" (keyup)="findbyname()">
+                <span class="caret"></span>
+
+                    <!--<input class="su" type="submit" (click)="findbyname()">-->
+                    
+                </div>
+              
+                    
+            </div>
+            
+           
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <svg id="icon1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-add" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#addempModal">
+                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h4a.5.5 0 1 0 0-1h-4a.5.5 0 0 1-.5-.5V7.207l5-5 6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+                  <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 1 0 1 0v-1h1a.5.5 0 1 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
+                </svg>
+                  
+                  
+              </div>
+        </nav>
+        
+        <!-- Notification alert -->
+       <!-- <div class="alert alert-success" role="alert" *ngIf="showAlert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+            <hr>
+            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        </div>--> 
+
+        <!-- Table -->
+        <div id="dateDiv">
+            <input
+              type="date"
+              id="dateInput"
+              class="dateInput"
+              placeholder="Date:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMYYYY"
+               [(ngModel)]="datesatart" name="datesatart"/>
+               <input
+               type="date"
+               id="dateInput"
+               class="dateInput"
+               placeholder="Date:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMYYYY"
+                [(ngModel)]="dateend" name="dateend"/>
+
+            <input type="submit" (click)="findbydate()">
+          </div>
+        <div class="col-md-12">
+            <p class="info">INFO</p>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Fullname</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">DateRecrutement</th>
+                        <th scope="col">Competences</th>
+                        <th scope="col">Departement</th>
+                        <th scope="col">rue</th>
+                        <th scope="col">ville
+                        </th>
+                        <th scope="col">zip</th>
+                        <th scope="col">img</th>
+                        <th scope="col">action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of empll" class="tab-sub">
+                        <td>{{item.id}}</td>
+                        <td>{{item.fullname}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.dateRecrutement}}</td>
+                        <td><span *ngFor="let c of item.competencs">{{c.titreCopmt}},</span> </td>
+                        <td>{{item.departement.nom}}</td>
+                        <td>{{item.addresse.rue}}</td>
+                        <td>{{item.addresse.ville}}</td>
+                        <td>{{item.addresse.zip}}</td>
+                       <td data-label="Image"><img alt="image" (error)="changeSource($event)" [src]="item.img" class="" width="50px"
+                        class="img-fluid"></td>
+                     
+                        <td>
+                            <!-- Action buttons -->
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" (click)="deleteemp(item.id)" id="del">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" data-bs-toggle="modal" (click)="allocateemp(item)" data-bs-target="#EditModel" id="edi">
+                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                            </svg>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal Add emp -->
+        <div class="modal fade" id="addempModal" tabindex="-1" role="dialog" aria-labelledby="addTeacherModalName" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTeacherModalName">Ajouter Competence</h5>
+                        <button #closeModalBtn type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body col-md-12">
+                        <form>
+
+                            <div class="mb-3">
+                                <label  for="name" class="form-label">Fullname</label>
+                                <input required [(ngModel)]="addemp.fullname" type="text" class="form-control" name="nom" placeholder="nom" id="name">
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="mb-3">
+                                <label  for="name" class="form-label">Age</label>
+                                <input required [(ngModel)]="addemp.age" type="text" class="form-control" name="nom" placeholder="nom" id="name">
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="mb-3">
+                                <label for="responsable" class="form-label">Date_recrutement</label>
+                                <input required [(ngModel)]="addemp.dateRecrutement" type="date" class="form-control" name="responsable" placeholder="responsable" id="responsable">
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="mb-3">
+                                <label for="responsable" class="form-label">Rue</label>
+                                <input required [(ngModel)]="addemp.addrdto.rue" type="text" class="form-control" name="responsable" placeholder="responsable" id="responsable">
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="mb-3">
+                                <label for="responsable" class="form-label">Ville</label>
+                                <input required [(ngModel)]="addemp.addrdto.ville" type="text" class="form-control" name="responsable" placeholder="responsable" id="responsable">
+                            </div>
+                            <br><hr>
+                            <div class="mb-3">
+                                <label for="responsable" class="form-label">Zip</label>
+                                <input required [(ngModel)]="addemp.addrdto.zip" type="text" class="form-control" name="responsable" placeholder="responsable" id="responsable">
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="form-group row mb-3 justify-content-center">
+                                <button (click)="fileInput.click()" style="background-color: transparent; border: none;">
+                                    <img (error)="changeSource($event)" [src]="imgUrl" class="rounded-circle" width="100px" height="100px" />
+                                    <input hidden type="file" #fileInput (change)="onFileInput(fileInput.files)" [(ngModel)]="addemp.img" name="img">
+                                </button>
+                                              </div>
+                                              <br>
+                                              <hr>
+            
+                            <div class="form-inner">
+                                <label>Departement </label>
+                                <select
+                                type="text"
+                                [(ngModel)]="addemp.iddept"
+                                name="id"
+                                class="form-control"
+                                 id="idcategorie" style="color:black;">
+                                    <option *ngFor="let item of dpts" [value]="item.id">{{item.nom}}</option>
+                                  </select>
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="form-group">
+                                <label for="Competences">Competences</label>
+                                <p-multiSelect [options]="labelValu" [(ngModel)]="addemp.compts" name="sevicesCom" defaultLabel="services" class="form"></p-multiSelect>
+                              </div>
+                              <br>
+                              <br>
+                              <br>
+                            
+                            <button class="button-74" (click)="addempl()">Ajouter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Edit -->
+        <div class="modal fade" id="EditModel" tabindex="-1" role="dialog" aria-labelledby="addTeacherModalName" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTeacherModalName">Modifier competence</h5>
+                        <button #editModalBtn type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body col-md-12">
+                        <form>
+                            <div class="mb-3">
+                                <input  [(ngModel)]="updateemp.id" hidden type="text">
+                                <label  for="titre" class="form-label">Fullname </label>
+                                <input   [(ngModel)]="updateemp.fullname" type="text" class="form-control" name="nom" placeholder="titre" >
+                                </div>
+                                <br>
+                                <hr>
+                                <div class="mb-3">
+                                   
+                                    
+                                  <label for="grade" class="form-label">Age</label>
+                                  <input required [(ngModel)]="updateemp.age" type="text" class="form-control" name="age" placeholder="grade" >
+                              </div>
+                              <br>
+                              <hr>
+                              <div class="mb-3">
+                                <label for="grade" class="form-label">DateRecrutement</label>
+                                <input  required [(ngModel)]="updateemp.dateRecrutement" type="text" class="form-control" name="date"  placeholder="grade">
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="mb-3">
+                                <label for="grade" class="form-label">Rue</label>
+                                <input required [(ngModel)]="updateemp.addrdto.rue" type="text" class="form-control" name="rue" placeholder="grade" >
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="mb-3">
+                                <label for="grade" class="form-label">Ville</label>
+                                <input required [(ngModel)]="updateemp.addrdto.ville" type="text" class="form-control" name="ville" placeholder="grade" >
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="mb-3">
+                                <label for="grade" class="form-label">Zip</label>
+                                <input required [(ngModel)]="updateemp.addrdto.zip" type="text" class="form-control" name="zip" placeholder="grade" >
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="form-group row mb-3 justify-content-center">
+                                <button (click)="fileInput.click()" style="background-color: transparent; border: none;">
+                                    <i class="bi bi-image-fill"></i>
+                                    <img (error)="changeSource($event)" [src]="imgUrl" class="rounded-circle" width="100px" height="100px" />
+                                    <input hidden type="file" #fileInput (change)="onFileInput(fileInput.files)" [(ngModel)]="updateemp.img" name="img">
+                                </button>
+                                              </div>
+                                              <br>
+                                              <hr>
+            
+                            <div class="form-inner">
+                                
+                            <label>Departement</label>
+                                <select
+                                type="text"
+                                [(ngModel)]="updateemp.iddept"
+                                name="iddept"
+                                class="form-control"
+                                 id="idcategorie" style="color:black;">
+                                    <option *ngFor="let item of dpts" [value]="item.id">{{item.nom}}</option>
+                                  </select>
+                                  
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="form-group">
+                                <label>Competences</label>
+                                <p-multiSelect [options]="labelValu" [(ngModel)]="updateemp.compts" name="compts" defaultLabel="services" class="form"></p-multiSelect>
+                              </div>
+                            
+                            <br>
+                            <br>
+                            <br>
+                              <button class="button-74" (click)="updateem()">Update</button>
+                            
+
+                            </form>
+                    
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+</body>
+</html>

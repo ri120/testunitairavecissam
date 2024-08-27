@@ -1,0 +1,326 @@
+body{
+    background-image: linear-gradient(to bottom,#230c4e,transparent);
+}
+.container{
+    background-image: linear-gradient(to bottom, #228c22,transparent);
+}
+
+th{
+    background-color:rgb(87, 59, 180) ;
+    border-radius: 4px;
+}
+td{
+   background-image: linear-gradient(to bottom,rgb(255, 255, 255),transparent);
+  border-radius: 20px;
+}
+.navbar-brand{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-size: 30px;
+ color:#000000;
+}
+.navbar-toggler{
+    background-color: rgba(10, 114, 174, 0.538);
+}
+#ajouter{
+    background-color: yellowgreen;
+}
+.table{
+    text-align: center;
+    width: 80%;
+    position: absolute;
+    left: 140px;
+  border-radius: 20px;
+    opacity: .7;
+    box-shadow: 5px 10px 30px 10px rgb(186, 125, 179);
+
+}
+.thead-dark{
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.info{
+    text-align: center;
+    font-size: 60px;
+    font-style: italic;
+    font-family: serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(98, 90, 181);
+    animation-name: info;
+    animation-duration: 5s;
+animation-delay: 2s;
+animation-iteration-count: infinite;
+}
+@keyframes info{
+    0%{
+        translate:0 0 ;
+    }
+    25%{ 
+        translate: 100px 0;
+    }
+50%{
+        translate: 0 0;
+    }
+75%{
+    translate:-100px 0;
+}
+100%{
+    translate: 0 0;
+}
+
+}
+
+#icon1{
+    width: 50px;
+    height: 50px;
+    color: green;
+    cursor: pointer;
+    position: relative;
+    right: 1150px;
+}
+
+#del{
+    width: 20px;
+    height: 20px;
+    color: red;
+    margin:20px;
+    cursor: pointer;
+
+}
+#edi{
+    width: 20px;
+    height: 20px;
+    color: green;
+    cursor: pointer;
+}
+#co{
+    position: relative;
+    left: 250px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+#dp{
+    position: relative;
+    left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    
+}
+.modal-content{
+background-image:linear-gradient(to top ,rgb(9, 72, 24),transparent) ;
+}
+
+
+
+/* CSS */
+.button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-74:hover {
+  background-color: #fff;
+}
+
+.button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+/* From Uiverse.io by BlackisPlay */ 
+.dateInput {
+  margin-left: auto;
+  margin-right: auto;
+  height: 2.5em;
+  width: 12.5em;
+  border-radius: 2.5em;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  -webkit-filter: drop-shadow(1px 1px 10px #000);
+  filter: drop-shadow(7px 7px 10px #00000059);
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(77, 77, 77);
+  text-align: center;
+  font-size: 14px;
+  outline: 2px solid rgba(0, 0, 0, 0);
+  transition: outline-offset 0.5s ease, outline-color 0.5s ease,
+    height 0.5s ease, width 0.5s ease, filter 0.5s ease;
+}
+
+.dateInput:focus {
+  outline-offset: 0.5em;
+  outline-color: rgba(0, 0, 0, 0.228);
+  transition: 0.2s;
+  height: 3em;
+  width: 13em;
+  -webkit-filter: drop-shadow(1px 1px 10px #000);
+  filter: drop-shadow(-7px 7px 10px #00000059);
+}
+
+.dateInput::placeholder {
+  padding-left: 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transform: translateX(-6px);
+  transition: transform 0.5s ease;
+}
+
+.dateInput:focus::placeholder {
+  transform: translateX(-85px);
+  transition: 0.5s;
+}
+/* From Uiverse.io by Harsha2lucky */ 
+.input {
+  color: black;
+  font: 1em/1.5 Hind, sans-serif;
+}
+
+form, .input, .caret {
+  margin: auto;
+}
+
+form {
+  position: relative;
+  width: 100%;
+  max-width: 17em;
+}
+
+.input, .caret {
+  display: block;
+  transition: all calc(1s * 0.5) linear;
+}
+
+.input {
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.25em inset;
+  caret-color: #255ff4;
+  width: 2em;
+  height: 2em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.input:focus, .input:valid {
+  background: powderblue;
+  border-radius: 0.25em;
+  box-shadow: none;
+  padding: 0.75em 1em;
+  transition-duration: calc(1s * 0.25);
+  transition-delay: calc(1s * 0.25);
+  width: 100%;
+  height: 3em;
+}
+
+.input:focus {
+  animation: showCaret 1s steps(1);
+  outline: transparent;
+}
+
+.input:focus + .caret, .input:valid + .caret {
+  animation: handleToCaret 1s linear;
+  background: transparent;
+  width: 1px;
+  height: 1.5em;
+  transform: translate(0,-1em) rotate(-180deg) translate(7.5em,-0.25em);
+}
+
+.input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+label {
+  color: #e3e4e8;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.caret {
+  background: black;
+  border-radius: 0 0 0.125em 0.125em;
+  margin-bottom: -0.6em;
+  width: 0.25em;
+  height: 1em;
+  transform: translate(0,-1em) rotate(-45deg) translate(0,0.875em);
+  transform-origin: 50% 0;
+}
+
+/* Animations */
+@keyframes showCaret {
+  from {
+    caret-color: transparent;
+  }
+
+  to {
+    caret-color: #255ff4;
+  }
+}
+
+@keyframes handleToCaret {
+  from {
+    background: currentColor;
+    width: 0.25em;
+    height: 1em;
+    transform: translate(0,-1em) rotate(-45deg) translate(0,0.875em);
+  }
+
+  25% {
+    background: currentColor;
+    width: 0.25em;
+    height: 1em;
+    transform: translate(0,-1em) rotate(-180deg) translate(0,0.875em);
+  }
+
+  50%, 62.5% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1em) rotate(-180deg) translate(7.5em,2.5em);
+  }
+
+  75%, 99% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1em) rotate(-180deg) translate(7.5em,-0.25em);
+  }
+
+  87.5% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1em) rotate(-180deg) translate(7.5em,0.125em);
+  }
+
+  to {
+    background: transparent;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1em) rotate(-180deg) translate(7.5em,-0.25em);
+  }
+}
